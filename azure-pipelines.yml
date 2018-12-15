@@ -18,7 +18,7 @@ steps:
     javaHomeOption: 'JDKVersion'
     publishJUnitResults: false
     testResultsFiles: '**/TEST-*.xml'
-    tasks: 'test'
+    tasks: 'testReleaseUnitTest'
 
 - task: PublishTestResults@2
   inputs:
