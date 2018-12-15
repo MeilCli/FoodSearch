@@ -10,6 +10,8 @@ android {
         targetSdkVersion rootProject.targetSdk
         versionCode rootProject.versionCode
         versionName rootProject.versionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
