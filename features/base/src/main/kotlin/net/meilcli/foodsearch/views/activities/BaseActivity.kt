@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.v7.app.AppCompatActivity
 import net.meilcli.foodsearch.IFoodSearchApplication
+import net.meilcli.foodsearch.extensions.forEachPresenters
+import net.meilcli.foodsearch.extensions.forEachPresentersOfInstance
 import net.meilcli.foodsearch.presenters.ILifecyclePresenter
 import net.meilcli.foodsearch.presenters.IPresenter
 import net.meilcli.foodsearch.views.IPresentedView
@@ -34,18 +36,6 @@ abstract class BaseActivity : AppCompatActivity(), IPresentedView {
 
     override fun getPresenters(): Sequence<IPresenter> {
         return presenters.asSequence()
-    }
-
-    private inline fun forEachPresenters(action: (IPresenter) -> Unit) {
-        for (presenter in presenters) {
-            action(presenter)
-        }
-    }
-
-    private inline fun <reified T> forEachPresentersOfInstance(action: (T) -> Unit) {
-        for (presenter in presenters.asSequence().filterIsInstance<T>()) {
-            action(presenter)
-        }
     }
 
     @CallSuper
