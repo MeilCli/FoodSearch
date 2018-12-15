@@ -7,6 +7,7 @@ import net.meilcli.foodsearch.R
 import net.meilcli.foodsearch.presenters.IPresenter
 import net.meilcli.foodsearch.views.IMainView
 import android.content.Intent.ACTION_VIEW as intentActionView
+import android.content.Intent.CATEGORY_BROWSABLE as intentCategoryBrowsable
 
 class MainActivity : BaseActivity(), IMainView {
 
@@ -23,7 +24,7 @@ class MainActivity : BaseActivity(), IMainView {
 
         text.setOnClickListener {
             val intent = Intent(intentActionView, Uri.parse("https://foodsearch.meilcli.net/app/gps_search")).apply {
-                addCategory(Intent.CATEGORY_BROWSABLE)
+                addCategory(intentCategoryBrowsable)
             }
             startActivity(intent)
         }
