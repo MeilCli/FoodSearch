@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.v7.app.AppCompatActivity
 import net.meilcli.foodsearch.IFoodSearchApplication
+import net.meilcli.foodsearch.extensions.forEachPresenters
+import net.meilcli.foodsearch.extensions.forEachPresentersOfInstance
 import net.meilcli.foodsearch.presenters.ILifecyclePresenter
 import net.meilcli.foodsearch.presenters.IPresenter
 import net.meilcli.foodsearch.views.IPresentedView
@@ -64,62 +66,61 @@ abstract class BaseActivity : AppCompatActivity(), IPresentedView {
 
     @CallSuper
     open fun onCreatedPresenters() {
-        presenters.asSequence()
-            .forEach { it.onCreate() }
+        forEachPresenters { it.onCreate() }
     }
 
     @CallSuper
     open fun onCreatedContentView() {
-        presenters.asSequence()
-            .filterIsInstance<ILifecyclePresenter>()
-            .forEach { it.onCreatedView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onCreatedView(this)
+        }
     }
 
     @CallSuper
     override fun onStart() {
         super.onStart()
 
-        presenters.asSequence()
-            .filterIsInstance<ILifecyclePresenter>()
-            .forEach { it.onStartView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onStartView(this)
+        }
     }
 
     @CallSuper
     override fun onResume() {
         super.onResume()
 
-        presenters.asSequence()
-            .filterIsInstance<ILifecyclePresenter>()
-            .forEach { it.onResumeView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onResumeView(this)
+        }
     }
 
     @CallSuper
     override fun onPause() {
         super.onPause()
 
-        presenters.asSequence()
-            .filterIsInstance<ILifecyclePresenter>()
-            .forEach { it.onPauseView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onPauseView(this)
+        }
     }
 
     @CallSuper
     override fun onStop() {
         super.onStop()
 
-        presenters.asSequence()
-            .filterIsInstance<ILifecyclePresenter>()
-            .forEach { it.onStopView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onStopView(this)
+        }
     }
 
     @CallSuper
     override fun onDestroy() {
         super.onDestroy()
 
-        presenters.asSequence()
-            .filterIsInstance<ILifecyclePresenter>()
-            .forEach { it.onDestroyView(this) }
-
-        presenters.asSequence()
-            .forEach { it.onDestroy() }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onDestroyView(this)
+        }
+        forEachPresenters {
+            it.onDestroy()
+        }
     }
 }
