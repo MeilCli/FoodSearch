@@ -71,42 +71,56 @@ abstract class BaseActivity : AppCompatActivity(), IPresentedView {
 
     @CallSuper
     open fun onCreatedContentView() {
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onCreatedView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onCreatedView(this)
+        }
     }
 
     @CallSuper
     override fun onStart() {
         super.onStart()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onStartView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onStartView(this)
+        }
     }
 
     @CallSuper
     override fun onResume() {
         super.onResume()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onResumeView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onResumeView(this)
+        }
     }
 
     @CallSuper
     override fun onPause() {
         super.onPause()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onPauseView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onPauseView(this)
+        }
     }
 
     @CallSuper
     override fun onStop() {
         super.onStop()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onStopView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onStopView(this)
+        }
     }
 
     @CallSuper
     override fun onDestroy() {
         super.onDestroy()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onDestroyView(this) }
-        forEachPresenters { it.onDestroy() }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onDestroyView(this)
+        }
+        forEachPresenters {
+            it.onDestroy()
+        }
     }
 }

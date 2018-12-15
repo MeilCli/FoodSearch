@@ -51,7 +51,9 @@ abstract class BaseFragment : Fragment(), IPresentedView {
 
     @CallSuper
     open fun onCreatedPresenters() {
-        forEachPresenters { it.onCreate() }
+        forEachPresenters {
+            it.onCreate()
+        }
     }
 
     @CallSuper
@@ -59,48 +61,62 @@ abstract class BaseFragment : Fragment(), IPresentedView {
         super.onActivityCreated(savedInstanceState)
 
         // wait for activity create
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onCreatedView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onCreatedView(this)
+        }
     }
 
     @CallSuper
     override fun onStart() {
         super.onStart()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onStartView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onStartView(this)
+        }
     }
 
     @CallSuper
     override fun onResume() {
         super.onResume()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onResumeView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onResumeView(this)
+        }
     }
 
     @CallSuper
     override fun onPause() {
         super.onPause()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onPauseView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onPauseView(this)
+        }
     }
 
     @CallSuper
     override fun onStop() {
         super.onStop()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onStopView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onStopView(this)
+        }
     }
 
     @CallSuper
     override fun onDestroyView() {
         super.onDestroyView()
 
-        forEachPresentersOfInstance<ILifecyclePresenter> { it.onDestroyView(this) }
+        forEachPresentersOfInstance<ILifecyclePresenter> {
+            it.onDestroyView(this)
+        }
     }
 
     @CallSuper
     override fun onDestroy() {
         super.onDestroy()
 
-        forEachPresenters { it.onDestroy() }
+        forEachPresenters {
+            it.onDestroy()
+        }
     }
 }
