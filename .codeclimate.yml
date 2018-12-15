@@ -24,3 +24,17 @@ checks:
   return-statements:
     config:
       threshold: 8
+
+exclude_patterns:
+- "config/"
+- "db/"
+- "dist/"
+- "script/"
+- "**/spec/"
+- "**/test/"
+- "**/androidTest/"
+- "**/tests/"
+- "Tests/"
+- "**/*_test.go"
+- "**/*.d.ts"
+- "**/vendor/"
