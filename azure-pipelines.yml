@@ -4,13 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-  batch: true
-  branches:
-    include:
-    - master
-  paths:
-    exclude:
-    - docs/*
+- master
 
 pr:
 - master
