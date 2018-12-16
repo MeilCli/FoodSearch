@@ -19,6 +19,9 @@ steps:
     sourceFolder: '$(Agent.TempDirectory)'
     contents: '**' 
     targetFolder: '$(Build.SourcesDirectory)\Secure'
-    
+
+- script: pwd
+  displayName: Show Current  
+
 - script: 'ls -la'
   displayName: Show Current Directory  
