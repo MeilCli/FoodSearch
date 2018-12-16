@@ -18,7 +18,7 @@ steps:
   inputs:
     sourceFolder: '$(Agent.TempDirectory)'
     contents: '**' 
-    targetFolder: '$(Build.ArtifactStagingDirectory)\Secure'
+    targetFolder: '$(Agent.BuildDirectory)\Secure'
     
 - script: 'ls -la'
   displayName: Show Current Directory  
