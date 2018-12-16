@@ -16,7 +16,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$env:DOWNLOADSECUREFILE_SECUREFILEPATH'
+    sourceFolder: '$(Agent.TempDirectory)'
     contents: '**' 
     targetFolder: '$(Build.ArtifactStagingDirectory)\Secure'
     
