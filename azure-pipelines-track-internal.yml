@@ -10,17 +10,15 @@ pool:
   vmImage: 'macOS-10.13'
 
 steps:
-- task: Gradle@2
+- task: DownloadSecureFile@1
   inputs:
-    workingDirectory: ''
-    gradleWrapperFile: 'gradlew'
-    gradleOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    publishJUnitResults: false
-    testResultsFiles: '**/TEST-*.xml'
-    tasks: 'testReleaseUnitTest'
+    secureFile: 'TestSecureFile.txt'
 
-- task: PublishTestResults@2
+- task: CopyFiles@2
   inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: '**/TEST-*.xml'
+    sourceFolder: '$env:DOWNLOADSECUREFILE_SECUREFILEPATH'
+    contents: '**' 
+    targetFolder: '$(Build.ArtifactStagingDirectory)\Secure'
+    
+- script: tree
+  displayName: Show Directory  
