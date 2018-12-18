@@ -27,3 +27,5 @@ steps:
 
 - script: 'ls -la'
   displayName: Show Current Directory  
+
+- script: `echo build id : $(Build.BuildId)`
