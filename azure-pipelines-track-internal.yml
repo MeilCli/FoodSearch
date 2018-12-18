@@ -6,6 +6,8 @@
 trigger:
 - refs/tags/*-internal
 
+pr: none
+
 pool:
   vmImage: 'macOS-10.13'
 
