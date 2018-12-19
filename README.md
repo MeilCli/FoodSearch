@@ -103,3 +103,5 @@ if added secure files, skip to 6
 10. Enable `Override YAML Pull Request trigger from here`
 11. Check `Disable pull request validation`, this option mean is Security for guard from pull request attack
 12. Save setting
+
+when not download secure file, see that: https://stackoverflow.com/questions/53401927/vsts-anybody-managed-to-use-secure-file-in-azure-pipelines-yml/53488887
