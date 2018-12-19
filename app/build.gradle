@@ -1,26 +1,60 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.github.triplet.play'
 
 android {
+    apply from: '../Secure/signing.gradle', to: android
+
     compileSdkVersion rootProject.compileSdk
 
     defaultConfig {
         applicationId "net.meilcli.foodsearch"
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.targetSdk
-        versionCode rootProject.versionCode
         versionName rootProject.versionName
     }
 
-    buildTypes {
-       release {
-           minifyEnabled false
-           proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-       }
+    flavorDimensions "experience"
+    productFlavors {
+        instant {
+            dimension "experience"
+            versionCode rootProject.instantVersionCode
+            signingConfig signingConfigs.release
+        }
+        installed {
+            dimension "experience"
+            versionCode rootProject.installedVersionCode
+            signingConfig signingConfigs.release
+        }
     }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    bundle {
+        language {
+            enableSplit = false
+        }
+        density {
+            enableSplit = true
+        }
+        abi {
+            enableSplit = true
+        }
+    }
+}
+
+play{
+    serviceAccountCredentials = file("../Secure/google-play-service-account-key.json")
+    releaseStatus = "completed"
+    track = "${googlePlayTrack}"
 }
 
 dependencies {
     implementation project(':features:base')
-    implementation project(':features:main')
+    installedImplementation project(':features:main')
     implementation project(':features:gps')
 }

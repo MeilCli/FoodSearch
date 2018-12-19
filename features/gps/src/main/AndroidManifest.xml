@@ -4,23 +4,14 @@
 
     <application>
         <activity android:name=".views.activities.GpsSearchActivity">
-            <intent-filter>
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data
-                    android:scheme="http"
-                    android:host="foodsearch.meilcli.net"
-                    android:path="/app/gps_search"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data
-                    android:scheme="https"
-                    android:host="foodsearch.meilcli.net"
-                    android:path="/app/gps_search"/>
+                <data android:scheme="http"/>
+                <data android:scheme="https"/>
+                <data android:host="@string/applicationServerHost"/>
+                <data android:path="@string/linkUrlPathOfGpsSearchView"/>
             </intent-filter>
         </activity>
     </application>

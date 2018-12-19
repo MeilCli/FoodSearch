@@ -1,8 +1,7 @@
 package net.meilcli.foodsearch.views.activities
 
-import android.content.Intent
-import android.net.Uri
 import kotlinx.android.synthetic.main.activity_main.*
+import net.meilcli.foodsearch.Launcher
 import net.meilcli.foodsearch.R
 import net.meilcli.foodsearch.presenters.IPresenter
 import net.meilcli.foodsearch.views.IMainView
@@ -23,10 +22,7 @@ class MainActivity : BaseActivity(), IMainView {
         super.onCreatedContentView()
 
         text.setOnClickListener {
-            val intent = Intent(intentActionView, Uri.parse("https://foodsearch.meilcli.net/app/gps_search")).apply {
-                addCategory(intentCategoryBrowsable)
-            }
-            startActivity(intent)
+            startActivity(Launcher.createGpsSearchViewIntent())
         }
     }
 }

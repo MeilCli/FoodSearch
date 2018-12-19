@@ -14,7 +14,15 @@ pool:
 steps:
 - task: DownloadSecureFile@1
   inputs:
-    secureFile: 'TestSecureFile.txt'
+    secureFile: 'google-play-service-account-key.json'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'google-play-upload-key.jks'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'signing.gradle'
 
 - task: CopyFiles@2
   inputs:
@@ -22,11 +30,30 @@ steps:
     contents: '**' 
     targetFolder: '$(Build.SourcesDirectory)/Secure'
 
-- script: pwd
-  displayName: Show Current  
+- script: 'echo -e "ext { \ninstantVersionCode = $(Build.BuildId) * 2 - 1\ninstalledVersionCode = $(Build.Build.Id) * 2\nversionNamePostfix = $(Build.BuildId)\ngooglePlayTrack = \"internal\"\n}" > Secure/version.gradle'
+  displayName: Make version.gradle
 
-- script: 'ls -la'
-  displayName: Show Current Directory  
+- task: Gradle@2
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'publishInstalledReleaseBundle'
 
-- script: 'echo build id : $(Build.BuildId)'
-  displayName: Show Number  
+- task: Gradle@2
+  inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'bundleInstantRelease'
+
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'InternalInstantBundle'
+    targetPath: 'app/build/outputs/bundle/instantRelease'

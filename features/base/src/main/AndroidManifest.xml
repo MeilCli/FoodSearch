@@ -10,9 +10,42 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".FoodSearchApplication">
+
         <meta-data
             android:name="aia-compat-api-min-version"
             android:value="1"/>
+
+        <activity android:name=".views.activities.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+
+            <!-- Not use string resource in intent filter of default-url -->
+            <!-- Because google play console validation bug -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="http"
+                    android:host="foodsearch.meilcli.net"
+                    android:path="/app/splash"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="https"
+                    android:host="foodsearch.meilcli.net"
+                    android:path="/app/splash"/>
+            </intent-filter>
+
+            <meta-data
+                android:name="default-url"
+                android:value="https://foodsearch.meilcli.net/app/splash"/>
+        </activity>
     </application>
 
 </manifest>
