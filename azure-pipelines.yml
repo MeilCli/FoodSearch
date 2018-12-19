@@ -18,7 +18,6 @@ steps:
   inputs:
     secureFile: 'google-play-service-account-key.json'
 
-
 - script: 'mkdir Secure'
   displayName: Make Secure Directory
     
