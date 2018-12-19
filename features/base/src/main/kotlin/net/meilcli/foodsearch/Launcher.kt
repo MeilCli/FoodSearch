@@ -8,20 +8,14 @@ import net.meilcli.foodsearch.BuildConfig.APPLICATION_ID as applicationId
 
 object Launcher {
 
-    private fun createIntent(url: String) = Intent(intentActionView, Uri.parse(url))
-
-    fun createSplashViewIntent() = createIntent(BuildConfig.linkUrlOfSplashView).apply {
+    private fun createIntent(url: String) = Intent(intentActionView, Uri.parse(url)).apply {
         setPackage(applicationId)
         addCategory(intentCategoryBrowsable)
     }
 
-    fun createMainViewIntent() = createIntent(BuildConfig.linkUrlOfMainView).apply {
-        setPackage(applicationId)
-        addCategory(intentCategoryBrowsable)
-    }
+    fun createSplashViewIntent() = createIntent(BuildConfig.linkUrlOfSplashView)
 
-    fun createGpsSearchViewIntent() = createIntent(BuildConfig.linkUrlOfGpsSearchView).apply {
-        setPackage(applicationId)
-        addCategory(intentCategoryBrowsable)
-    }
+    fun createMainViewIntent() = createIntent(BuildConfig.linkUrlOfMainView)
+
+    fun createGpsSearchViewIntent() = createIntent(BuildConfig.linkUrlOfGpsSearchView)
 }
