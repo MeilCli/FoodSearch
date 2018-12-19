@@ -26,7 +26,7 @@ steps:
 - script: 'echo -e signingConfigs{\\nrelease{\\n}\\n} > Secure/signing.gradle'
   displayName: Make empty signing.gradle
 
-- script: echo -e 'ext{\ninstantVersionCode=$(Build.BuildId)*2-1\ninstalledVersionCode=$(Build.BuildId)*2\nversionNamePostfix=$(Build.BuildId)\ngooglePlayTrack=\"internal\"\n}' > Secure/version.gradle'
+- script: echo -e 'ext{\ninstantVersionCode=$(Build.BuildId)*2-1\ninstalledVersionCode=$(Build.BuildId)*2\nversionNamePostfix=$(Build.BuildId)\ngooglePlayTrack=\"internal\"\n}' > Secure/version.gradle
   displayName: Make version.gradle
   
 - task: Gradle@2
