@@ -16,7 +16,15 @@ steps:
 
 - task: DownloadSecureFile@1
   inputs:
-    secureFile: 'TestSecureFile.txt'
+    secureFile: 'google-play-service-account-key.json'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'google-play-upload-key.jks'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'signing.gradle'
 
 - script: 'mkdir Secure'
   displayName: Make Secure Directory
