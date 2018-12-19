@@ -31,7 +31,7 @@ steps:
     contents: '**' 
     targetFolder: '$(Build.SourcesDirectory)/Secure'
 
-- script: 'echo -e "ext { \ninstantVersionCode = $(Build.BuildId) * 2 - 1\ninstalledVersionCode = $(Build.Build.Id) * 2\nversionNamePostfix = $(Build.BuildId)\ngooglePlayTrack = \"internal\"\n}" > Secure/version.gradle'
+- script: 'echo -e ext{\\ninstantVersionCode=$(Build.BuildId)*2-1\\ninstalledVersionCode=$(Build.Build.Id)*2\\nversionNamePostfix=$(Build.BuildId)\\ngooglePlayTrack=\\"internal\\"\\n} > Secure/version.gradle'
   displayName: Make version.gradle
   
 - task: Gradle@2
