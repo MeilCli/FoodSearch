@@ -20,7 +20,7 @@ steps:
 - script: 'touch Secure/google-play-service-account-key.json'
   displayName: Make empty google-play-service-account-key.json
   
-- script: `touch Secure/google-play-upload-key.jks`
+- script: 'touch Secure/google-play-upload-key.jks'
   displayName: Make empty google-play-upload-key.jks
   
 - script 'echo -e signingConfigs{\\nrelease{\\n}\\n} > Secure/signing.gradle'
