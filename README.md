@@ -93,9 +93,9 @@ signingConfigs  {
 if added secure files, skip to 6
 1. Open pipeline's `Library`
 2. Select Secure files
-3. Add `{ROOT}/Secure/google-play-service-account-key.json`, and, enable option `Authorize for use in all pipelines`
-4. Add `{ROOT}/Secure/google-play-upload-key.jks`, and, enable option `Authorize for use in all pipelines`
-5. Add `{ROOT}/Secure/signing.gradle`, and, enable option `Authorize for use in all pipelines`
+3. Add `{ROOT}/Secure/google-play-service-account-key.json`
+4. Add `{ROOT}/Secure/google-play-upload-key.jks`
+5. Add `{ROOT}/Secure/signing.gradle`
 6. Create pipeline from `azure-pipelines-track-***.yml`
 7. Open created pipeline, click `Edit`
 8. Click `Edit in the visual designer`
