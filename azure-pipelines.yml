@@ -13,6 +13,27 @@ pool:
   vmImage: 'macOS-10.13'
 
 steps:
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'google-play-service-account-key.json'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'google-play-upload-key.jks'
+
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'signing.gradle'
+
+- task: CopyFiles@2
+  inputs:
+    sourceFolder: '$(Agent.TempDirectory)'
+    contents: '**' 
+    targetFolder: '$(Build.SourcesDirectory)/Secure'
+
+- script: 'echo -e "ext { \ninstantVersionCode = $(Build.BuildId) * 2 - 1\ninstalledVersionCode = $(Build.Build.Id) * 2\nversionNamePostfix = $(Build.BuildId)\ngooglePlayTrack = \"internal\"\n}" > Secure/version.gradle'
+  displayName: Make version.gradle
+  
 - task: Gradle@2
   inputs:
     workingDirectory: ''
