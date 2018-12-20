@@ -11,16 +11,21 @@ android {
         targetSdkVersion rootProject.targetSdk
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        buildConfigField("String", "applicationServerUrl", "\"https://${applicationServerHost}\"")
-        buildConfigField("String", "linkUrlOfSplashView", "\"https://${applicationServerHost}${linkUrlPathOfSplashView}\"")
-        buildConfigField("String", "linkUrlOfMainView", "\"https://${applicationServerHost}${linkUrlPathOfMainView}\"")
-        buildConfigField("String", "linkUrlOfGpsSearchView", "\"https://${applicationServerHost}${linkUrlPathOfGpsSearchView}\"")
+        buildConfigField "String", "applicationServerUrl", "\"https://${applicationServerHost}\""
+        buildConfigField "String", "linkUrlOfSplashView", "\"https://${applicationServerHost}${linkUrlPathOfSplashView}\""
+        buildConfigField "String", "linkUrlOfMainView", "\"https://${applicationServerHost}${linkUrlPathOfMainView}\""
+        buildConfigField "String", "linkUrlOfGpsSearchView", "\"https://${applicationServerHost}${linkUrlPathOfGpsSearchView}\""
 
         resValue "string", "applicationServerHost", "${applicationServerHost}"
         resValue "string", "linkUrlPathOfSplashView", "${linkUrlPathOfSplashView}"
         resValue "string", "linkUrlPathOfMainView", "${linkUrlPathOfMainView}"
         resValue "string", "linkUrlPathOfGpsSearchView", "${linkUrlPathOfGpsSearchView}"
         resValue "string", "instantAppDefaultUrl", "https://${applicationServerHost}${linkUrlPathOfSplashView}"
+
+        manifestPlaceholders  = [
+            applicationServerHost: applicationServerHost,
+            defaultUrlPath: linkUrlPathOfSplashView
+        ]
     }
 
     buildTypes {
