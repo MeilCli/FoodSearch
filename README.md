@@ -81,9 +81,10 @@ signingConfigs  {
 7. Add first bundle file to target track, example: `internal`
 8. Go to setting
 9. Select API access
-10. enable link `Google Play Android Developer`
-11. create service account
-12. download created service account key as a json, save to `{ROOT}/Secure/google-play-service-account-key.json`
+10. Enable link `Google Play Android Developer`
+11. Create service account
+12. Download created service account key as a json, save to `{ROOT}/Secure/google-play-service-account-key.json`
+13. Add permissions to created service account in Google Play Console settings
 
 ### Azure Pipeline CI
 1. Set up Azure Pipeline from Github Marketplace, make Azure Pipeline project
