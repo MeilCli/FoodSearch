@@ -8,7 +8,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.targetSdk
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testOptions.unitTests.includeAndroidResources = true
     }
 
@@ -25,9 +25,9 @@ android {
 dependencies {
     implementation project(':features:base')
 
-    testImplementation 'junit:junit:4.12'
-    testImplementation 'org.robolectric:robolectric:4.1'
+    testImplementation testLibraries.junit
+    testImplementation testLibraries.robolectric
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation androidTestLibraries.androidx.runner
+    androidTestImplementation androidTestLibraries.androidx.espresso.core
 }

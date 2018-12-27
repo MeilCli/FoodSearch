@@ -1,8 +1,8 @@
 package net.meilcli.foodsearch.views.fragments
 
 import android.os.Bundle
-import android.support.annotation.CallSuper
-import android.support.v4.app.Fragment
+import androidx.annotation.CallSuper
+import androidx.fragment.app.Fragment
 import net.meilcli.foodsearch.IFoodSearchApplication
 import net.meilcli.foodsearch.extensions.forEachPresenters
 import net.meilcli.foodsearch.extensions.forEachPresentersOfInstance
