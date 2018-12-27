@@ -37,6 +37,10 @@ ext {
                     android: [
                             instantApps: 'com.google.android.instantapps:instantapps:1.1.0'
                     ]
+            ],
+            moshi : [
+                    core : 'com.squareup.moshi:moshi:1.8.0',
+                    codegen : 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0'
             ]
     ]
 
