@@ -10,6 +10,7 @@ android {
         minSdkVersion rootProject.minSdk
         targetSdkVersion rootProject.targetSdk
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testOptions.unitTests.includeAndroidResources = true
 
         buildConfigField "String", "applicationServerUrl", "\"https://${applicationServerHost}\""
         buildConfigField "String", "linkUrlOfSplashView", "\"https://${applicationServerHost}${linkUrlPathOfSplashView}\""
@@ -21,9 +22,9 @@ android {
         resValue "string", "linkUrlPathOfMainView", "${linkUrlPathOfMainView}"
         resValue "string", "linkUrlPathOfGpsSearchView", "${linkUrlPathOfGpsSearchView}"
 
-        manifestPlaceholders  = [
-            applicationServerHost: applicationServerHost,
-            defaultUrlPath: linkUrlPathOfSplashView
+        manifestPlaceholders = [
+                applicationServerHost: applicationServerHost,
+                defaultUrlPath       : linkUrlPathOfSplashView
         ]
     }
 
@@ -36,6 +37,11 @@ android {
 
     sourceSets.all {
         java.srcDirs += "src/${name}/kotlin"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 }
 
@@ -52,4 +58,5 @@ dependencies {
     feature project(":features:main")
 
     testImplementation 'junit:junit:4.12'
+    testImplementation 'org.robolectric:robolectric:4.1'
 }
