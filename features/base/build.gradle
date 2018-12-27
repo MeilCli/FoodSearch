@@ -60,6 +60,9 @@ dependencies {
     implementation libraries.moshi.core
     kapt libraries.moshi.codegen
 
+    implementation libraries.okhttp.core
+    debugImplementation libraries.okhttp.logging
+
     application project(':app')
 
     feature project(':features:gps')
