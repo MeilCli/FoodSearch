@@ -47,6 +47,8 @@ android {
 
 dependencies {
     api libraries.kotlin.stdlib
+    api libraries.kotlin.coroutine.core
+    api libraries.kotlin.coroutine.android
 
     api libraries.androidx.appcompat
     api libraries.androidx.constraintLayout
