@@ -16,6 +16,7 @@ android {
         buildConfigField "String", "linkUrlOfSplashView", "\"https://${applicationServerHost}${linkUrlPathOfSplashView}\""
         buildConfigField "String", "linkUrlOfMainView", "\"https://${applicationServerHost}${linkUrlPathOfMainView}\""
         buildConfigField "String", "linkUrlOfGpsSearchView", "\"https://${applicationServerHost}${linkUrlPathOfGpsSearchView}\""
+        buildConfigField "String", "gnaviApiKey", "\"${gnaviApiKey}\""
 
         resValue "string", "applicationServerHost", "${applicationServerHost}"
         resValue "string", "linkUrlPathOfSplashView", "${linkUrlPathOfSplashView}"

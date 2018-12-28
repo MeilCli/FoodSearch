@@ -24,6 +24,10 @@ steps:
   inputs:
     secureFile: 'signing.gradle'
 
+- task: DownloadSecureFile@1
+  inputs:
+    secureFile: 'key.gradle'
+
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Agent.TempDirectory)'
