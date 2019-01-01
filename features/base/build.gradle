@@ -1,6 +1,7 @@
 apply plugin: 'com.android.feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -16,6 +17,7 @@ android {
         buildConfigField "String", "linkUrlOfSplashView", "\"https://${applicationServerHost}${linkUrlPathOfSplashView}\""
         buildConfigField "String", "linkUrlOfMainView", "\"https://${applicationServerHost}${linkUrlPathOfMainView}\""
         buildConfigField "String", "linkUrlOfGpsSearchView", "\"https://${applicationServerHost}${linkUrlPathOfGpsSearchView}\""
+        buildConfigField "String", "gnaviApiKey", "\"${gnaviApiKey}\""
 
         resValue "string", "applicationServerHost", "${applicationServerHost}"
         resValue "string", "linkUrlPathOfSplashView", "${linkUrlPathOfSplashView}"
@@ -31,7 +33,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
         }
     }
 
@@ -47,6 +49,8 @@ android {
 
 dependencies {
     api libraries.kotlin.stdlib
+    api libraries.kotlin.coroutine.core
+    api libraries.kotlin.coroutine.android
 
     api libraries.androidx.appcompat
     api libraries.androidx.constraintLayout
@@ -54,6 +58,13 @@ dependencies {
     api libraries.androidx.browser
 
     api libraries.google.android.instantApps
+
+    implementation libraries.moshi.core
+    implementation libraries.moshi.adapters
+    kapt libraries.moshi.codegen
+
+    implementation libraries.okhttp.core
+    debugImplementation libraries.okhttp.logging
 
     application project(':app')
 

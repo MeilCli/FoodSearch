@@ -15,17 +15,17 @@
 |Internal|[![Build Status](https://dev.azure.com/meilcli/FoodSearch/_apis/build/status/FoodSearch-Track-Internal?branchName=master)](https://dev.azure.com/meilcli/FoodSearch/_build/latest?definitionId=8?branchName=master)|Secret|
 
 ## Build
-1. make directory `{ROOT}/Secure`
-2. create empty file `{ROOT}/Secure/google-play-service-account-key.json`
-3. create empty file `{ROOT}/Secure/google-play-upload-key.jks`
-4. create file `{ROOT}/Secure/signing.gradle`  
+1. Make directory `{ROOT}/Secure`
+2. Create empty file `{ROOT}/Secure/google-play-service-account-key.json`
+3. Create empty file `{ROOT}/Secure/google-play-upload-key.jks`
+4. Create file `{ROOT}/Secure/signing.gradle`
 content:
 ```gradle
 signingConfigs {
     release { }
 }
 ```
-5. create file `{ROOT}/Secure/version.gradle`  
+5. Create file `{ROOT}/Secure/version.gradle`
 content:
 ```gradle
 ext {
@@ -34,9 +34,20 @@ ext {
     versionNamePostfix = 1
     googlePlayTrack = "internal"
 }
-
 ```
-6. Build.
+6. Create file `{ROOT}/Secure/key.gradle`
+content:
+```gradle
+ext {
+    gnaviApiKey = ""
+}
+```
+7. Build.
+
+## ApiKey
+Key configuration locate `{ROOT}/Secure/key.gradle`.
+
+- Get `gnaviApiKey` in [https://api.gnavi.co.jp/api/](https://api.gnavi.co.jp/api/)
 
 ## Set Up CI/CD (for Developer as a other application)
 First, clone repository.  
@@ -46,6 +57,7 @@ important files:
 - `azure-pipelines.yml`
 - `azure-pipelines-track-**.yml`
 - `build.gradle`
+- `configuration.gradle`
 - `app/build.gradle`
 
 Next, upload your repository to Github.
@@ -97,12 +109,13 @@ if added secure files, skip to 6
 3. Add `{ROOT}/Secure/google-play-service-account-key.json`
 4. Add `{ROOT}/Secure/google-play-upload-key.jks`
 5. Add `{ROOT}/Secure/signing.gradle`
-6. Create pipeline from `azure-pipelines-track-***.yml`
-7. Open created pipeline, click `Edit`
-8. Click `Edit in the visual designer`
-9. Select Triggers, select Pull request validation
-10. Enable `Override YAML Pull Request trigger from here`
-11. Check `Disable pull request validation`, this option mean is Security for guard from pull request attack
-12. Save setting
+6. Add `{ROOT}/Secure/key.gradle`
+7. Create pipeline from `azure-pipelines-track-***.yml`
+8. Open created pipeline, click `Edit`
+9. Click `Edit in the visual designer`
+10. Select Triggers, select Pull request validation
+11. Enable `Override YAML Pull Request trigger from here`
+12. Check `Disable pull request validation`, this option mean is Security for guard from pull request attack
+13. Save setting
 
 when not download secure file, see that: https://stackoverflow.com/questions/53401927/vsts-anybody-managed-to-use-secure-file-in-azure-pipelines-yml/53488887

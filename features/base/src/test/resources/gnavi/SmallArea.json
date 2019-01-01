@@ -1,0 +1,16 @@
+{
+  "areacode_s": "code",
+  "areaname_s": "name",
+  "garea_middle": {
+    "areacode_m": "middleArea_code",
+    "areaname_m": "middleArea_name"
+  },
+  "garea_large": {
+    "areacode_l": "largeArea_code",
+    "areaname_l": "largeArea_name"
+  },
+  "pref": {
+    "pref_code": "pref_code",
+    "pref_name": "pref_name"
+  }
+}

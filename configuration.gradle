@@ -1,4 +1,5 @@
 apply from: "${rootDir}/Secure/version.gradle"
+apply from: "${rootDir}/Secure/key.gradle"
 
 ext {
     compileSdk = 28
@@ -21,7 +22,11 @@ ext {
 
     libraries = [
             kotlin  : [
-                    stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+                    stdlib   : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
+                    coroutine: [
+                            core   : 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0',
+                            android: 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
+                    ]
             ],
             androidx: [
                     appcompat       : 'androidx.appcompat:appcompat:1.0.2',
@@ -33,20 +38,29 @@ ext {
                     android: [
                             instantApps: 'com.google.android.instantapps:instantapps:1.1.0'
                     ]
+            ],
+            moshi   : [
+                    core   : 'com.squareup.moshi:moshi:1.8.0',
+                    codegen: 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0',
+                    adapters : 'com.squareup.moshi:moshi-adapters:1.8.0'
+            ],
+            okhttp  : [
+                    core   : 'com.squareup.okhttp3:okhttp:3.12.1',
+                    logging: 'com.squareup.okhttp3:logging-interceptor:3.12.1'
             ]
     ]
 
     testLibraries = [
-            junit : 'junit:junit:4.12',
-            robolectric : 'org.robolectric:robolectric:4.1'
+            junit      : 'junit:junit:4.12',
+            robolectric: 'org.robolectric:robolectric:4.1'
     ]
 
     androidTestLibraries = [
-        androidx : [
-                runner : 'androidx.test:runner:1.1.0',
-                espresso : [
-                        core : 'androidx.test.espresso:espresso-core:3.1.0'
-                ]
-        ]
+            androidx: [
+                    runner  : 'androidx.test:runner:1.1.0',
+                    espresso: [
+                            core: 'androidx.test.espresso:espresso-core:3.1.0'
+                    ]
+            ]
     ]
 }

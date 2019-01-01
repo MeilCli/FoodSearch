@@ -28,6 +28,9 @@ steps:
 
 - script: echo -e 'ext{\ninstantVersionCode=$(Build.BuildId)*2-1\ninstalledVersionCode=$(Build.BuildId)*2\nversionNamePostfix=$(Build.BuildId)\ngooglePlayTrack="internal"\n}' > Secure/version.gradle
   displayName: Make version.gradle
+
+- script: echo -e 'ext{\ngnaviApiKey=""\n}' > Secure/key.gradle
+  displayName: Make key.gradle
   
 - task: Gradle@2
   inputs:
@@ -40,6 +43,7 @@ steps:
     tasks: 'testReleaseUnitTest'
 
 - task: PublishTestResults@2
+  condition: always()
   inputs:
     testResultsFormat: 'JUnit'
     testResultsFiles: '**/TEST-*.xml' 
