@@ -33,7 +33,6 @@ steps:
   displayName: Make key.gradle
   
 - task: Gradle@2
-  continueOnError: true
   inputs:
     workingDirectory: ''
     gradleWrapperFile: 'gradlew'
