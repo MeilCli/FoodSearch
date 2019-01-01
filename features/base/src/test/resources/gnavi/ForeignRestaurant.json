@@ -1,0 +1,58 @@
+{
+  "@attributes": {
+    "order": 0
+  },
+  "id": "id",
+  "update_date": "2018-01-01T10:11:12+09:00",
+  "name": {
+    "name": "name",
+    "name_kana": "nameOfReading"
+  },
+  "business_hour": "opentime",
+  "holiday": "holiday",
+  "contacts": {
+    "address": "Japan",
+    "tel": "000-000-000",
+    "fax": ""
+  },
+  "sales_points": {
+    "pr_short": "short",
+    "pr_long": "long"
+  },
+  "access": "line駅東口 徒歩3分",
+  "budget": 1000,
+  "credit_card": "credit",
+  "categories": {
+    "category": "新宿 居酒屋 焼き鳥",
+    "category_name_l": [
+      "name",
+      ""
+    ],
+    "category_name_s": [
+      "name",
+      ""
+    ]
+  },
+  "flags": {
+    "mobile_site": 1,
+    "mobile_coupon": 1,
+    "pc_coupon": 1
+  },
+  "location": {
+    "latitude": "113.113",
+    "longitude": "113.113",
+    "latitude_wgs84": "114.514",
+    "longitude_wgs84": "114.514",
+    "area": {
+      "district": "area",
+      "prefname": "pref",
+      "areaname_s": "area"
+    }
+  },
+  "url": "https://google.com",
+  "url_mobile": "https://google.com",
+  "image_url": {
+    "thumbnail": "",
+    "qrcode": ""
+  }
+}

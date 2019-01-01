@@ -1,0 +1,11 @@
+{
+  "@attributes": {
+    "api_version": "api_version"
+  },
+  "error": [
+    {
+      "code": 400,
+      "message": "message"
+    }
+  ]
+}

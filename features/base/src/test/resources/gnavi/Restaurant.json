@@ -1,0 +1,75 @@
+{
+  "@attributes": {
+    "order": 0
+  },
+  "id": "id",
+  "update_date": "2018-01-01T10:11:12+09:00",
+  "name": "name",
+  "name_kana": "nameOfReading",
+  "latitude": "114.514",
+  "longitude": "114.514",
+  "category": "category",
+  "url": "https://google.com",
+  "url_mobile": "https://google.com",
+  "coupon_url": {
+    "pc": "",
+    "mobile": ""
+  },
+  "image_url": {
+    "shop_image1": "",
+    "shop_image2": "",
+    "qrcode": ""
+  },
+  "address": "Japan",
+  "tel": "000-000-000",
+  "tel_sub": "",
+  "fax": "",
+  "opentime": "opentime",
+  "holiday": "holiday",
+  "access": {
+    "line": "line",
+    "station": "駅",
+    "station_exit": "東口",
+    "walk": "3",
+    "note": ""
+  },
+  "parking_lots": "",
+  "pr": {
+    "pr_short": "short",
+    "pr_long": "long"
+  },
+  "code": {
+    "areacode": "code",
+    "areaname": "area",
+    "prefcode": "code",
+    "prefname": "pref",
+    "areacode_s": "code",
+    "areaname_s": "area",
+    "category_code_l": [
+      "code",
+      ""
+    ],
+    "category_name_l": [
+      "name",
+      ""
+    ],
+    "category_code_s": [
+      "code",
+      ""
+    ],
+    "category_name_s": [
+      "name",
+      ""
+    ]
+  },
+  "budget": 1000,
+  "party": 1000,
+  "lunch": "",
+  "credit_card": "credit",
+  "e_money": "",
+  "flags": {
+    "mobile_site": 1,
+    "mobile_coupon": 1,
+    "pc_coupon": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "areacode_l": "code",
+  "areaname_l": "name",
+  "pref": {
+    "pref_code": "pref_code",
+    "pref_name": "pref_name"
+  }
+}

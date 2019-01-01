@@ -3,7 +3,7 @@ package net.meilcli.foodsearch.api
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
-class ApiClient : IApiClient {
+open class ApiClient : IApiClient {
 
     companion object {
 
@@ -16,11 +16,12 @@ class ApiClient : IApiClient {
             .get()
             .build()
         val response = httpClient.newCall(request).execute()
+        val body = requireNotNull(response.body()?.string())
 
         if (response.isSuccessful) {
-            return response.message()
+            return body
         }
 
-        throw ApiException(response.message())
+        throw ApiException(body)
     }
 }

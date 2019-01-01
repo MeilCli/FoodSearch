@@ -1,6 +1,7 @@
 apply plugin: 'com.android.feature'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdk
@@ -59,6 +60,7 @@ dependencies {
     api libraries.google.android.instantApps
 
     implementation libraries.moshi.core
+    implementation libraries.moshi.adapters
     kapt libraries.moshi.codegen
 
     implementation libraries.okhttp.core

@@ -10,3 +10,7 @@ fun String.toUrlEncodedValue(): String {
 fun String.toUrlDecodedValue(): String {
     return URLDecoder.decode(this, "UTF-8")
 }
+
+fun String?.letNullIfEmpty(): String? {
+    return this.let { if (it?.isEmpty() == true) null else it }
+}
