@@ -9,11 +9,10 @@ trigger:
 pr:
 - master
 
-pool:
-  vmImage: 'macOS-10.13'
-
 jobs:
 - job: Build
+  pool:
+    vmImage: 'macOS-10.13'
   steps:
 
   - script: 'mkdir Secure'
@@ -45,6 +44,8 @@ jobs:
       tasks: 'testReleaseUnitTest'
 
 - job: PublishTest
+  pool:
+    vmImage: 'macOS-10.13'
   dependsOn: Build
   condition: always()
   steps:
