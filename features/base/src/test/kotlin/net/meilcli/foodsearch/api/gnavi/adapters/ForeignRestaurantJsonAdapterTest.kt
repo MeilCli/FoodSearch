@@ -5,12 +5,15 @@ import net.meilcli.foodsearch.api.gnavi.GnaviJsonAdapterFactory
 import net.meilcli.foodsearch.api.gnavi.entities.ForeignRestaurant
 import org.junit.Test
 import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.text.Charsets.UTF_8 as Utf8Charset
 
 class ForeignRestaurantJsonAdapterTest {
 
     private val moshi = Moshi.Builder().add(GnaviJsonAdapterFactory).build()
-    private val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss")
+    private val dateFormat = SimpleDateFormat("yyyy/MM/dd HH:mm:ss").apply {
+        timeZone = TimeZone.getTimeZone("Asia/Tokyo")
+    }
 
     @Test
     fun testFromJson() {
