@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="option_canLunch">ランチ営業あり</string>
+    <string name="option_canDrinkAll">飲み放題あり</string>
+    <string name="option_canEatAll">食べ放題あり</string>
+    <string name="option_hasLunchDesert">ランチデザートあり</string>
+    <string name="option_canNoSmoking">禁煙席あり</string>
+    <string name="option_canCreditCard">カード利用可</string>
+    <string name="option_canElectronicMoney">電子マネー利用可</string>
+    <string name="option_canDelivery">デリバリーあり</string>
+    <string name="option_canReserveInWeb">Web予約可</string>
+    <string name="option_isMidnightOpen">深夜営業あり</string>
+    <string name="option_isUntilMorningOpen">朝まで営業あり</string>
+    <string name="option_hasPrivateRoom">個室あり</string>
+    <string name="option_hasParking">駐車場あり</string>
+    <string name="option_hasPowerSupply">電源あり</string>
+    <string name="option_hasWifi">Wi-Fiあり</string>
+    <string name="option_canPet">ペット同伴可</string>
+    <string name="option_canSeeSports">スポーツ観戦可</string>
+    <string name="option_hasDarts">ダーツあり</string>
+    <string name="option_hasEnglishSpeakingStaff">英語スタッフあり</string>
+    <string name="option_hasEnglishMenu">英語メニューあり</string>
+    <string name="option_hasVegetarianMenu">ベジタリアンメニュー相談可</string>
+    <string name="option_hasReligiousMenu">宗教メニュー相談可</string>
+</resources>

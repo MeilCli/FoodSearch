@@ -28,6 +28,11 @@ android {
                 applicationServerHost: applicationServerHost,
                 defaultUrlPath       : linkUrlPathOfSplashView
         ]
+
+        buildConfigField "String", "languageJapanese", "\"ja\""
+        buildConfigField "String", "languageEnglish", "\"en\""
+        resValue "string", "languageJapanse", "ja"
+        resValue "string", "languageEnglish", "en"
     }
 
     buildTypes {

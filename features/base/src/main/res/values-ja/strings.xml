@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ごはん検索</string>
+
+    <string name="language">@string/languageJapanse</string>
+</resources>
