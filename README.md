@@ -134,8 +134,11 @@ Application:
 - kotlinx.coroutines, published by [Apache License v2](https://github.com/Kotlin/kotlinx.coroutines/blob/master/LICENSE.txt)
 - AndroidX, published by [Apache License v2](https://github.com/aosp-mirror/platform_frameworks_support/blob/androidx-master-dev/LICENSE.txt)
 - com.google.android.instantapps, published by [Android Software Development Kit License Agreement](https://developer.android.com/studio/terms)
+- Material Components, published by [Apache License v2](https://github.com/material-components/material-components-android/blob/master/LICENSE)
 - [Moshi](https://github.com/square/moshi), published by [Apache License v2](https://github.com/square/moshi/blob/master/LICENSE.txt)
 - [OkHttp](https://github.com/square/okhttp), published by [Apache License v2](https://github.com/square/okhttp/blob/master/LICENSE.txt)
+- [Nachos](https://github.com/hootsuite/nachos), published by [Apache License v2](https://github.com/hootsuite/nachos/blob/master/LICENSE)
+- [ShimmerLayout](https://github.com/team-supercharge/ShimmerLayout), published by [Apache License v2](https://github.com/team-supercharge/ShimmerLayout/blob/master/LICENSE)
 
 Test:
 
