@@ -2,6 +2,8 @@
 
     <style name="AppTheme" parent="Theme.MaterialComponents.Light">
         <!-- Let's default color -->
+
+        <item name="android:navigationBarColor">?attr/colorPrimaryDark</item>
     </style>
 
 </resources>
