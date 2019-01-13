@@ -1,5 +1,5 @@
 # FoodSearch
-[![Build Status](https://dev.azure.com/meilcli/FoodSearch/_apis/build/status/FoodSearch-CI?branchName=master)](https://dev.azure.com/meilcli/FoodSearch/_build/latest?definitionId=6?branchName=master) [![Maintainability](https://api.codeclimate.com/v1/badges/a7bde630bb380f6b71de/maintainability)](https://codeclimate.com/github/MeilCli/FoodSearch/maintainability)
+[![Build Status](https://dev.azure.com/meilcli/FoodSearch/_apis/build/status/FoodSearch-CI?branchName=master)](https://dev.azure.com/meilcli/FoodSearch/_build/latest?definitionId=6?branchName=master) [![Maintainability](https://api.codeclimate.com/v1/badges/a7bde630bb380f6b71de/maintainability)](https://codeclimate.com/github/MeilCli/FoodSearch/maintainability) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9dcdb921528d44338159ef91f58b3f0d)](https://www.codacy.com/app/ics.sora.meil/FoodSearch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeilCli/FoodSearch&amp;utm_campaign=Badge_Grade)
 
 ![](features/base/src/main/res/mipmap-xhdpi/icon_launcher_round.png) > ごはん検索 / FoodSearch
 
