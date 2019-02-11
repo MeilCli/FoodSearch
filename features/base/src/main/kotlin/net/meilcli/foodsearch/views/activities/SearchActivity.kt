@@ -102,7 +102,8 @@ open class SearchActivity : BaseActivity(), ISearchQueryView {
     }
 
     override fun addCategory(category: ICategory) {
-        val chip = LayoutInflater.from(this).inflate(R.layout.view_chip_filter, null) as Chip
+        val chip =
+            LayoutInflater.from(this).inflate(R.layout.view_chip_filter, null) as? Chip ?: throw IllegalStateException()
         chip.text = category.name
         chip.tag = category
         categoryView.successLayout?.categoryChipGroup?.addView(chip)

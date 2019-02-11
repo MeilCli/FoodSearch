@@ -33,7 +33,8 @@ class SearchQueryPresenter(
     override fun onRestoreState(bundle: Bundle) {
         val savedLanguage = Language.values()[bundle.getInt(languageStateKey)]
         if (bundle.containsKey(largeCategoriesStateKey) && savedLanguage == configurationService.currentLanguage) {
-            largeCategories = jsonService.toLargeCategoriesValue(bundle.getString(largeCategoriesStateKey)!!)
+            val bundleValue = bundle.getString(largeCategoriesStateKey) ?: return
+            largeCategories = jsonService.toLargeCategoriesValue(bundleValue)
         }
     }
 
