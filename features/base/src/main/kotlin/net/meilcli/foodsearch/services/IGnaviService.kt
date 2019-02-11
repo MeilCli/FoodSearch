@@ -5,6 +5,8 @@ import net.meilcli.foodsearch.models.RestaurantRequestModel
 
 interface IGnaviService {
 
+    fun createRestaurantRequestModel(): RestaurantRequestModel
+
     fun createRestaurantRequestModel(id: String): RestaurantRequestModel
 
     fun createRestaurantRequestModel(ids: Array<String>): RestaurantRequestModel

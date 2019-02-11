@@ -48,6 +48,22 @@ sealed class RestaurantRequestModel {
             requestQuery.searchWords = value
         }
 
+    var latitude: Double?
+        get() = requestQuery.latitude
+        set(value) {
+            requestQuery.latitude = value
+        }
+
+    var longitude: Double?
+        get() = requestQuery.longitude
+        set(value) {
+            requestQuery.longitude = value
+        }
+
+    constructor(requestQuery: IRestaurantRequestQuery) {
+        this.requestQuery = requestQuery
+    }
+
     constructor(requestQuery: IRestaurantRequestQuery, id: String) : this(requestQuery, arrayOf(id))
 
     constructor(requestQuery: IRestaurantRequestQuery, ids: Array<String>) {
@@ -87,7 +103,7 @@ sealed class RestaurantRequestModel {
 
     abstract fun createOptions(): List<Option>
 
-    class Option(val property: KMutableProperty0<Boolean>, @StringRes val description: Int, @DrawableRes val icon: Int?) {
+    class Option(private val property: KMutableProperty0<Boolean>, @StringRes val description: Int, @DrawableRes val icon: Int?) {
 
         var value: Boolean
             get() = property.get()
@@ -99,6 +115,10 @@ sealed class RestaurantRequestModel {
     class Japanese : RestaurantRequestModel {
 
         val requestQuery: RestaurantRequestQuery
+
+        constructor(requestQuery: RestaurantRequestQuery) : super(requestQuery) {
+            this.requestQuery = requestQuery
+        }
 
         constructor(requestQuery: RestaurantRequestQuery, id: String) : super(requestQuery, id) {
             this.requestQuery = requestQuery
@@ -152,6 +172,11 @@ sealed class RestaurantRequestModel {
     class Foreign : RestaurantRequestModel {
 
         val requestQuery: ForeignRestaurantRequestQuery
+
+        constructor(requestQuery: ForeignRestaurantRequestQuery, language: Language) : super(requestQuery) {
+            this.requestQuery = requestQuery
+            requestQuery.language = language.toGnaviLanguage()
+        }
 
         constructor(
             requestQuery: ForeignRestaurantRequestQuery,

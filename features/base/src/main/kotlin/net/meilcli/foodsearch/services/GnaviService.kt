@@ -14,6 +14,13 @@ class GnaviService(private val configurationService: IConfigurationService) : IG
     private var middleAreaCache: List<MiddleArea>? = null
     private var smallAreaCache: List<SmallArea>? = null
 
+    override fun createRestaurantRequestModel(): RestaurantRequestModel {
+        return when (val language = configurationService.currentLanguage) {
+            Language.Japanese -> RestaurantRequestModel.Japanese(RestaurantRequestQuery())
+            Language.English -> RestaurantRequestModel.Foreign(ForeignRestaurantRequestQuery(), language)
+        }
+    }
+
     override fun createRestaurantRequestModel(id: String): RestaurantRequestModel {
         return when (val language = configurationService.currentLanguage) {
             Language.Japanese -> RestaurantRequestModel.Japanese(RestaurantRequestQuery(), id)

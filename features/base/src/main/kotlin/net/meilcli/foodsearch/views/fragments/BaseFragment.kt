@@ -8,6 +8,7 @@ import net.meilcli.foodsearch.extensions.forEachPresenters
 import net.meilcli.foodsearch.extensions.forEachPresentersOfInstance
 import net.meilcli.foodsearch.presenters.ILifecyclePresenter
 import net.meilcli.foodsearch.presenters.IPresenter
+import net.meilcli.foodsearch.presenters.ISaveStatePresenter
 import net.meilcli.foodsearch.views.IPresentedView
 
 abstract class BaseFragment : Fragment(), IPresentedView {
@@ -64,6 +65,17 @@ abstract class BaseFragment : Fragment(), IPresentedView {
         forEachPresentersOfInstance<ILifecyclePresenter> {
             it.onCreatedView(this)
         }
+
+        if (savedInstanceState != null) {
+            onRestoreState(savedInstanceState)
+        }
+    }
+
+    @CallSuper
+    open fun onRestoreState(bundle: Bundle) {
+        forEachPresentersOfInstance<ISaveStatePresenter> {
+            it.onRestoreState(bundle)
+        }
     }
 
     @CallSuper
@@ -81,6 +93,15 @@ abstract class BaseFragment : Fragment(), IPresentedView {
 
         forEachPresentersOfInstance<ILifecyclePresenter> {
             it.onResumeView(this)
+        }
+    }
+
+    @CallSuper
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        forEachPresentersOfInstance<ISaveStatePresenter> {
+            it.onSaveState(outState)
         }
     }
 
