@@ -1,5 +1,5 @@
 # FoodSearch
-[![Build Status](https://dev.azure.com/meilcli/FoodSearch/_apis/build/status/FoodSearch-CI?branchName=master)](https://dev.azure.com/meilcli/FoodSearch/_build/latest?definitionId=6?branchName=master) [![Maintainability](https://api.codeclimate.com/v1/badges/a7bde630bb380f6b71de/maintainability)](https://codeclimate.com/github/MeilCli/FoodSearch/maintainability)
+[![Build Status](https://dev.azure.com/meilcli/FoodSearch/_apis/build/status/FoodSearch-CI?branchName=master)](https://dev.azure.com/meilcli/FoodSearch/_build/latest?definitionId=6?branchName=master) [![Maintainability](https://api.codeclimate.com/v1/badges/a7bde630bb380f6b71de/maintainability)](https://codeclimate.com/github/MeilCli/FoodSearch/maintainability) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/9dcdb921528d44338159ef91f58b3f0d)](https://www.codacy.com/app/ics.sora.meil/FoodSearch?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=MeilCli/FoodSearch&amp;utm_campaign=Badge_Grade)
 
 ![](features/base/src/main/res/mipmap-xhdpi/icon_launcher_round.png) > ごはん検索 / FoodSearch
 
@@ -119,3 +119,28 @@ if added secure files, skip to 6
 13. Save setting
 
 when not download secure file, see that: https://stackoverflow.com/questions/53401927/vsts-anybody-managed-to-use-secure-file-in-azure-pipelines-yml/53488887
+
+## License
+This application is published by [MIT License](LICENSE.txt)
+
+### Using Libraries
+Build:
+
+- [Google Play Publisher](https://github.com/Triple-T/gradle-play-publisher), published by [MIT License](https://github.com/Triple-T/gradle-play-publisher/blob/master/LICENSE)
+
+Application:
+
+- Kotlin Standard Library, published by [Apache License v2](https://github.com/JetBrains/kotlin/blob/master/license/LICENSE.txt)
+- kotlinx.coroutines, published by [Apache License v2](https://github.com/Kotlin/kotlinx.coroutines/blob/master/LICENSE.txt)
+- AndroidX, published by [Apache License v2](https://github.com/aosp-mirror/platform_frameworks_support/blob/androidx-master-dev/LICENSE.txt)
+- com.google.android.instantapps, published by [Android Software Development Kit License Agreement](https://developer.android.com/studio/terms)
+- Material Components, published by [Apache License v2](https://github.com/material-components/material-components-android/blob/master/LICENSE)
+- [Moshi](https://github.com/square/moshi), published by [Apache License v2](https://github.com/square/moshi/blob/master/LICENSE.txt)
+- [OkHttp](https://github.com/square/okhttp), published by [Apache License v2](https://github.com/square/okhttp/blob/master/LICENSE.txt)
+- [Nachos](https://github.com/hootsuite/nachos), published by [Apache License v2](https://github.com/hootsuite/nachos/blob/master/LICENSE)
+- [ShimmerLayout](https://github.com/team-supercharge/ShimmerLayout), published by [Apache License v2](https://github.com/team-supercharge/ShimmerLayout/blob/master/LICENSE)
+
+Test:
+
+- junit4, published by [Eclipse Public License v1](https://github.com/junit-team/junit4/blob/master/LICENSE-junit.txt)
+- [Robolectric](https://github.com/robolectric/robolectric), published by [MIT License](https://github.com/robolectric/robolectric/blob/master/LICENSE)

@@ -21,33 +21,36 @@ ext {
     ]
 
     libraries = [
-            kotlin  : [
+            kotlin       : [
                     stdlib   : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion",
                     coroutine: [
                             core   : 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.0',
                             android: 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
                     ]
             ],
-            androidx: [
+            androidx     : [
                     appcompat       : 'androidx.appcompat:appcompat:1.0.2',
                     constraintLayout: 'androidx.constraintlayout:constraintlayout:1.1.3',
                     recyclerView    : 'androidx.recyclerview:recyclerview:1.0.0',
                     browser         : 'androidx.browser:browser:1.0.0'
             ],
-            google  : [
+            google       : [
                     android: [
-                            instantApps: 'com.google.android.instantapps:instantapps:1.1.0'
+                            instantApps: 'com.google.android.instantapps:instantapps:1.1.0',
+                            material   : 'com.google.android.material:material:1.0.0'
                     ]
             ],
-            moshi   : [
-                    core   : 'com.squareup.moshi:moshi:1.8.0',
-                    codegen: 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0',
-                    adapters : 'com.squareup.moshi:moshi-adapters:1.8.0'
+            moshi        : [
+                    core    : 'com.squareup.moshi:moshi:1.8.0',
+                    codegen : 'com.squareup.moshi:moshi-kotlin-codegen:1.8.0',
+                    adapters: 'com.squareup.moshi:moshi-adapters:1.8.0'
             ],
-            okhttp  : [
+            okhttp       : [
                     core   : 'com.squareup.okhttp3:okhttp:3.12.1',
                     logging: 'com.squareup.okhttp3:logging-interceptor:3.12.1'
-            ]
+            ],
+            nachos       : 'com.hootsuite.android:nachos:1.1.2',
+            shimmerlayout: 'io.supercharge:shimmerlayout:2.1.0'
     ]
 
     testLibraries = [

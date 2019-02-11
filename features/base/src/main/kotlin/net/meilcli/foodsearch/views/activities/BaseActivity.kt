@@ -9,6 +9,7 @@ import net.meilcli.foodsearch.extensions.forEachPresenters
 import net.meilcli.foodsearch.extensions.forEachPresentersOfInstance
 import net.meilcli.foodsearch.presenters.ILifecyclePresenter
 import net.meilcli.foodsearch.presenters.IPresenter
+import net.meilcli.foodsearch.presenters.ISaveStatePresenter
 import net.meilcli.foodsearch.views.IPresentedView
 
 @SuppressLint("Registered")
@@ -55,6 +56,10 @@ abstract class BaseActivity : AppCompatActivity(), IPresentedView {
 
         onCreatedPresenters()
         onCreatedContentView()
+
+        if (savedInstanceState != null) {
+            onRestoreState(savedInstanceState)
+        }
     }
 
     /**
@@ -77,6 +82,13 @@ abstract class BaseActivity : AppCompatActivity(), IPresentedView {
     }
 
     @CallSuper
+    open fun onRestoreState(bundle: Bundle) {
+        forEachPresentersOfInstance<ISaveStatePresenter> {
+            it.onRestoreState(bundle)
+        }
+    }
+
+    @CallSuper
     override fun onStart() {
         super.onStart()
 
@@ -91,6 +103,17 @@ abstract class BaseActivity : AppCompatActivity(), IPresentedView {
 
         forEachPresentersOfInstance<ILifecyclePresenter> {
             it.onResumeView(this)
+        }
+    }
+
+    @CallSuper
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+
+        if (outState != null) {
+            forEachPresentersOfInstance<ISaveStatePresenter> {
+                it.onSaveState(outState)
+            }
         }
     }
 

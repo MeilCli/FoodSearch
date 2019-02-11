@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ごはん検索</string>
+
+    <string name="language">@string/languageJapanse</string>
+
+    <string name="retry">再試行</string>
+    <string name="category">カテゴリー</string>
+    <string name="option">オプション</string>
+    <string name="search">検索</string>
+</resources>

@@ -1,13 +1,12 @@
 package net.meilcli.foodsearch.api
 
-import okhttp3.OkHttpClient
 import okhttp3.Request
 
 open class ApiClient : IApiClient {
 
     companion object {
 
-        private val httpClient = OkHttpClient.Builder().build()
+        private val httpClient = OkHttpClientFactory.create()
     }
 
     override suspend fun get(url: String, query: IRequestQuery): String {

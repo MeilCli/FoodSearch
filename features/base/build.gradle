@@ -28,6 +28,11 @@ android {
                 applicationServerHost: applicationServerHost,
                 defaultUrlPath       : linkUrlPathOfSplashView
         ]
+
+        buildConfigField "String", "languageJapanese", "\"ja\""
+        buildConfigField "String", "languageEnglish", "\"en\""
+        resValue "string", "languageJapanse", "ja"
+        resValue "string", "languageEnglish", "en"
     }
 
     buildTypes {
@@ -58,6 +63,7 @@ dependencies {
     api libraries.androidx.browser
 
     api libraries.google.android.instantApps
+    api libraries.google.android.material
 
     implementation libraries.moshi.core
     implementation libraries.moshi.adapters
@@ -65,6 +71,9 @@ dependencies {
 
     implementation libraries.okhttp.core
     debugImplementation libraries.okhttp.logging
+
+    api libraries.shimmerlayout
+    api libraries.nachos
 
     application project(':app')
 

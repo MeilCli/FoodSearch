@@ -3,6 +3,7 @@ package net.meilcli.foodsearch.api.gnavi.adapters
 import com.squareup.moshi.*
 import net.meilcli.foodsearch.IJsonAdapterFactory
 import net.meilcli.foodsearch.api.createNonNullJsonDateException
+import net.meilcli.foodsearch.api.createNullPointerExceptionWhenConvertJson
 import net.meilcli.foodsearch.api.gnavi.entities.IArea
 import net.meilcli.foodsearch.api.gnavi.entities.MiddleArea
 import java.lang.reflect.Type
@@ -28,7 +29,22 @@ class MiddleAreaJsonAdapter(moshi: Moshi) : JsonAdapter<MiddleArea>() {
     }
 
     override fun toJson(writer: JsonWriter, value: MiddleArea?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        value ?: throw createNullPointerExceptionWhenConvertJson()
+
+        val apiMiddleArea = ApiMiddleArea(
+            name = value.name,
+            code = value.code,
+            largeArea = ApiLargeArea(
+                name = value.largeArea.name,
+                code = checkNotNull(value.largeArea.code)
+            ),
+            prefectureArea = ApiPrefectureArea(
+                name = value.prefectureArea.name,
+                code = checkNotNull(value.prefectureArea.code)
+            )
+        )
+
+        apiMiddleAreaJsonAdapter.toJson(writer, apiMiddleArea)
     }
 
     internal object InternalJsonAdapterFactory : IJsonAdapterFactory {
